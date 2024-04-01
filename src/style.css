@@ -83,11 +83,9 @@ body {
   right: 50%;
   transform: translateX(50%);
   z-index: 10;
-  width: 70%;
   padding: 0.5rem 1rem;
   border-radius: 0.75rem;
   background-color: #f9f9f9;
-  font-size: 0.5rem;
   transition: opacity 0.25s ease;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
@@ -105,8 +103,22 @@ body {
   margin: 0;
 }
 
-/* Media queries */
-@media screen and (min-width: 320px) {
+@media (orientation: landscape) {
+  #info {
+    font-size: 0.5rem;
+    width: 70%;
+  }
+}
+
+@media (orientation: portrait) {
+  #info {
+    font-size: 0.8rem;
+    width: 80%;
+  }
+}
+
+/* Media queries 320px */
+@media (min-width: 320px) and (orientation: landscape) {
   .loader-pattern {
     font-size: 1.5rem;
   }
@@ -124,7 +136,17 @@ body {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 320px) and (orientation: portrait) {
+  #info {
+    bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Media queries 768px */
+@media (min-width: 768px) and (orientation: landscape) {
   .loader-pattern {
     font-size: 2.25rem;
   }
@@ -144,7 +166,8 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+/* Media queries 1024px */
+@media (min-width: 1024px) and (orientation: landscape) {
   .loader-pattern {
     font-size: 2.6rem;
   }
@@ -168,7 +191,8 @@ body {
   }
 }
 
-@media screen and (min-width: 1280px) {
+/* Media queries 1280px */
+@media (min-width: 1280px) and (orientation: landscape) {
   #info {
     font-size: 1rem;
   }
