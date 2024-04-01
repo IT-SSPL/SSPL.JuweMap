@@ -32,13 +32,13 @@ export const setupScene = () => {
 
   camera.updateProjectionMatrix();
   camera.position.set(30, 15, 20);
+  camera.zoom = window.innerWidth / 2000;
 
   // Set up controls
   controls = new OrbitControls(camera, renderer.domElement);
   controls.maxZoom = 2;
   controls.minZoom = 0.7;
   // controls.listenToKeyEvents(window);
-
   controls.enableDamping = true;
   controls.autoRotate = true;
   controls.autoRotateSpeed = 0.3;

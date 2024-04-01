@@ -41,7 +41,7 @@ assets.forEach((asset) => {
 
           if (asset.id === "Entrance") {
             child.material.color.setHex(0x747bff);
-            child.material.emissive.setHex(0x747bff);
+            child.material.emissive.setHex(0x5156b2);
           }
 
           child.material.map = texture;
@@ -87,6 +87,12 @@ const header = document.getElementById("info-header")!;
 const content = document.getElementById("info-content")!;
 
 function render() {
+  if (window.innerWidth < 1024) {
+    controls.minZoom = 0.3;
+  } else {
+    controls.minZoom = 0.7;
+  }
+
   raycaster.setFromCamera(pointer, camera);
   const unFilteredIntersects = raycaster.intersectObjects(scene.children, true);
   const intersects = unFilteredIntersects.filter(
