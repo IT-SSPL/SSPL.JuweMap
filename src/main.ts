@@ -118,7 +118,7 @@ function render() {
       INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
     controls.autoRotate = true;
 
-    // section.style.opacity = "0";
+    section.style.opacity = "0";
 
     INTERSECTED = null;
   }
