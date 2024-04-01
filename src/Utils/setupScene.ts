@@ -64,9 +64,15 @@ export const setupScene = () => {
   // Pointer move event
   document.addEventListener("pointermove", onPointerMove);
 
-  function onPointerMove(event: { clientX: number; clientY: number }) {
-    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  function onPointerMove(e: {
+    preventDefault: () => void;
+    clientX: number;
+    clientY: number;
+  }) {
+    e.preventDefault();
+
+    pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
   }
 
   return { camera, controls, renderer, pointer };
