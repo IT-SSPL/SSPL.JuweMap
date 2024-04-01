@@ -1,0 +1,57 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  /* min-width: 320px;
+  min-height: 100vh; */
+}
+
+#app {
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#info {
+  position: fixed;
+  bottom: 2rem;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 10;
+  width: 80%;
+  padding: 1.5rem 2rem;
+  border-radius: 0.75rem;
+  background-color: #f9f9f9;
+  font-size: 0.875rem;
+  transition: opacity 0.25s ease;
+}
+
+#info-header {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+#info-content {
+  margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  #info {
+    width: 50%;
+    transform: translateX(0);
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 1rem;
+  }
+}

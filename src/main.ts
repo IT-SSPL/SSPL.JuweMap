@@ -1,0 +1,129 @@
+import "./style.css";
+import {
+  Scene,
+  TextureLoader,
+  Color,
+  AmbientLight,
+  Mesh,
+  Raycaster,
+} from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import assets from "./Utils/assets";
+import { setupScene } from "./Utils/setupScene";
+// import Stats from "three/addons/libs/stats.module.js";
+
+const scene = new Scene();
+const textureLoader = new TextureLoader();
+const gltfLoader = new GLTFLoader();
+
+let { camera, controls, renderer, pointer } = setupScene();
+
+scene.background = new Color(0xd6d2ca);
+
+// Lights
+const ambientLight = new AmbientLight(0xffffff, 3.5);
+scene.add(ambientLight);
+
+// Stats
+// const stats = new Stats();
+// document.body.appendChild(stats.dom);
+
+// Load assets
+assets.forEach((asset) => {
+  gltfLoader.load(
+    asset.path,
+    (glb) => {
+      glb.scene.traverse((child) => {
+        if (child instanceof Mesh) {
+          const texture = textureLoader.load(asset.texture);
+          texture.flipY = false;
+
+          child.name = asset.id;
+
+          if (asset.id === "Entrance") {
+            child.material.color.setHex(0x747bff);
+            child.material.emissive.setHex(0x747bff);
+          }
+
+          child.material.map = texture;
+        }
+      });
+
+      scene.add(glb.scene);
+    },
+    undefined,
+    function (error) {
+      console.error(error);
+    }
+  );
+});
+
+// Animate
+function animate() {
+  let isFocus = 1;
+  const fps = 60;
+
+  setTimeout(() => {
+    requestAnimationFrame(animate);
+  }, 1000 / (isFocus * fps));
+
+  window.onblur = function () {
+    isFocus = 0.5; /// reduce FPS to half
+  };
+
+  window.onfocus = function () {
+    isFocus = 1; /// full FPS
+  };
+
+  controls.update();
+  // stats.update();
+
+  render();
+}
+
+const raycaster = new Raycaster();
+let INTERSECTED: any;
+const section = document.getElementById("info")!;
+const header = document.getElementById("info-header")!;
+const content = document.getElementById("info-content")!;
+
+function render() {
+  raycaster.setFromCamera(pointer, camera);
+  const unFilteredIntersects = raycaster.intersectObjects(scene.children, true);
+  const intersects = unFilteredIntersects.filter(
+    (intersect) => intersect.object.name !== "Ground"
+  );
+
+  if (intersects.length > 0) {
+    if (INTERSECTED != intersects[0].object) {
+      if (INTERSECTED) {
+        INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+      }
+
+      INTERSECTED = intersects[0].object;
+      INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+      INTERSECTED.material.emissive.setHex(0x777777);
+      controls.autoRotate = false;
+
+      assets.forEach((asset) => {
+        if (asset.id === INTERSECTED.name) {
+          header.innerHTML = asset.header;
+          content.innerHTML = asset.content;
+        }
+      });
+      section.style.opacity = "1";
+    }
+  } else {
+    if (INTERSECTED)
+      INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+    controls.autoRotate = true;
+
+    // section.style.opacity = "0";
+
+    INTERSECTED = null;
+  }
+
+  renderer.render(scene, camera);
+}
+
+animate();
