@@ -79,15 +79,15 @@ body {
 /* Info section */
 #info {
   position: fixed;
-  bottom: 2rem;
+  bottom: 1rem;
   right: 50%;
   transform: translateX(50%);
   z-index: 10;
-  width: 80%;
-  padding: 1.5rem 2rem;
+  width: 70%;
+  padding: 0.5rem 1rem;
   border-radius: 0.75rem;
   background-color: #f9f9f9;
-  font-size: 0.875rem;
+  font-size: 0.5rem;
   transition: opacity 0.25s ease;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
@@ -98,7 +98,7 @@ body {
 
 #info-header {
   margin-top: 0;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.3rem;
 }
 
 #info-content {
@@ -114,6 +114,14 @@ body {
   .loader-pattern::after {
     font-size: 0.75rem;
   }
+
+  #info {
+    width: 80%;
+    bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.6rem;
+    font-size: 0.6rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -124,22 +132,44 @@ body {
   .loader-pattern::after {
     font-size: 1rem;
   }
+
+  #info {
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  #info-header {
+    margin-bottom: 0.5rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
-  #info {
-    width: 50%;
-    transform: translateX(0);
-    bottom: 2rem;
-    right: 2rem;
-    font-size: 1rem;
-  }
-
   .loader-pattern {
     font-size: 2.6rem;
   }
 
   .loader-pattern::after {
     font-size: 1.25rem;
+  }
+
+  #info {
+    right: 2rem;
+    bottom: 2rem;
+    width: 50%;
+    transform: translateX(0);
+    padding: 1.5rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  #info-header {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #info {
+    font-size: 1rem;
   }
 }
