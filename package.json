@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "vite --host"
+    "start": "vite preview --host"
   },
   "devDependencies": {
     "@types/three": "^0.163.0",

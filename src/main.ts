@@ -50,9 +50,11 @@ assets.forEach((asset) => {
 
       scene.add(glb.scene);
     },
-    undefined,
-    function (error) {
-      console.error(error);
+    (xhr) => {
+      console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+    },
+    (error) => {
+      console.log(error);
     }
   );
 });
