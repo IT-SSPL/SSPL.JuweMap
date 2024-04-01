@@ -1,4 +1,3 @@
-import "./style.css";
 import {
   Scene,
   TextureLoader,
@@ -13,12 +12,9 @@ import { setupScene } from "./Utils/setupScene";
 import { manager } from "./Utils/preloader";
 // import Stats from "three/addons/libs/stats.module.js";
 
-// Loading manager
-
 const scene = new Scene();
 const textureLoader = new TextureLoader(manager);
 const gltfLoader = new GLTFLoader(manager);
-
 let { camera, controls, renderer, pointer } = setupScene();
 
 scene.background = new Color(0xd6d2ca);
