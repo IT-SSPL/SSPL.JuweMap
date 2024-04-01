@@ -36,9 +36,9 @@ export const setupScene = () => {
 
   // Set up controls
   controls = new OrbitControls(camera, renderer.domElement);
-  controls.maxZoom = 2;
+  controls.maxZoom = 3;
   controls.minZoom = 0.7;
-  // controls.listenToKeyEvents(window);
+  controls.listenToKeyEvents(window);
   controls.enableDamping = true;
   controls.autoRotate = true;
   controls.autoRotateSpeed = 0.3;
