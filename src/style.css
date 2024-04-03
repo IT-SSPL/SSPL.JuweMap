@@ -103,6 +103,19 @@ body {
   margin: 0;
 }
 
+#credits {
+  font-family: Monument Extended;
+  font-size: 0.45rem;
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  color: #263238;
+}
+
+#credits a {
+  color: #263238;
+}
+
 @media (orientation: landscape) {
   #info {
     font-size: 0.5rem;
