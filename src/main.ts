@@ -44,6 +44,10 @@ assets.forEach((asset) => {
             child.material.emissive.setHex(0x5156b2);
           }
 
+          if (asset.id === "Road") {
+            child.material.color.setHex(0xd6d2ca);
+          }
+
           child.material.map = texture;
         }
       });

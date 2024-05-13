@@ -105,7 +105,7 @@ body {
 
 #credits {
   font-family: Monument Extended;
-  font-size: 0.45rem;
+  font-size: 0.375rem;
   position: fixed;
   bottom: 0.5rem;
   right: 0.5rem;
@@ -176,6 +176,16 @@ body {
 
   #info-header {
     margin-bottom: 0.5rem;
+  }
+
+  #credits {
+    font-size: 0.45rem;
+  }
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  #credits {
+    font-size: 0.45rem;
   }
 }
 
