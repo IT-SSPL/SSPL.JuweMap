@@ -8,6 +8,14 @@ export default [
     content: "",
   },
   {
+    id: "Trees",
+    type: "glbModel",
+    path: "models/trees.glb",
+    texture: "textures/baked-trees.webp",
+    header: "",
+    content: "",
+  },
+  {
     id: "Building",
     type: "glbModel",
     path: "models/building.glb",
@@ -18,8 +26,8 @@ export default [
   {
     id: "Scene",
     type: "glbModel",
-    path: "models/low/low-scene.glb",
-    texture: "textures/low/baked-low-scene.webp",
+    path: "models/scene.glb",
+    texture: "textures/baked-scene.webp",
     header: "Scena koncertowa",
     content: "To tutaj będą grali artyści.",
   },
@@ -34,8 +42,8 @@ export default [
   {
     id: "Gastronomy",
     type: "glbModel",
-    path: "models/low/low-gastronomy.glb",
-    texture: "textures/low/baked-low-gastronomy.webp",
+    path: "models/gastronomy.glb",
+    texture: "textures/baked-gastronomy.webp",
     header: "Gastronomia",
     content: "Chcesz coś zjeść? To miejsce jest dla Ciebie.",
   },
@@ -56,12 +64,21 @@ export default [
     content: "Tędy można wejść na teren festiwalu.",
   },
   {
-    id: "Road",
+    id: "RoadA",
     type: "glbModel",
-    path: "models/road.glb",
-    texture: "textures/baked-road.webp",
+    path: "models/roada.glb",
+    texture: "textures/baked-roada.webp",
     header: "Ulica",
     content:
       "aleje Politechniki - ulica w Łodzi, mająca około 2,3 km długości.",
+  },
+  {
+    id: "RoadB",
+    type: "glbModel",
+    path: "models/roadb.glb",
+    texture: "textures/baked-roadb.webp",
+    header: "Ulica",
+    content:
+      "Wólczańska - ulica w Łodzi, powstała biorąc nazwę od wsi rządowej Wólka położonej nad Jasieniem.",
   },
 ];

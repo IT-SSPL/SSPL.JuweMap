@@ -102,7 +102,8 @@ function render() {
   raycaster.setFromCamera(pointer, camera);
   const unFilteredIntersects = raycaster.intersectObjects(scene.children, true);
   const intersects = unFilteredIntersects.filter(
-    (intersect) => intersect.object.name !== "Ground"
+    (intersect) =>
+      intersect.object.name !== "Ground" && intersect.object.name !== "Trees"
   );
 
   if (intersects.length > 0) {
